@@ -5,7 +5,7 @@
 # Site
 title: Xshellv Blog
 subtitle: Code And Love  Every Day!
-author: Kaijun Chen
+author: Xshellv
 language: zh-CN
 timezone:
 
@@ -19,9 +19,9 @@ permalink_defaults:
 #Custom Setting Start
 
 # Site settings
-SEOTitle: Kaijun的博客 | Kaijun's Blog
+SEOTitle: 小武的博客
 header-img: img/home-bg.jpg
-email: Kaijun.cn@gmail.com
+email: 18217706879@163.com
 description: ""
 keyword: ""
 
@@ -58,13 +58,13 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "我要成为魔法师!"
+sidebar-about-description: "没有梦想，何必远方!"
 sidebar-avatar: img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 0              # A tag will be featured if the size of it is more than this condition value
 
 
 # Friends
