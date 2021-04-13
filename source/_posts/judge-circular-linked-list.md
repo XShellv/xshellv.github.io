@@ -1,0 +1,81 @@
+---
+title: 判断环形链表
+date: 2021-04-13 19:39:15
+subtitle:   "快慢指针法解决链表问题"
+author:     "Xshellv"
+catalog:    true
+header-img: "post-bg-js-module.jpg"
+tags:
+    - 算法
+    - 链表
+---
+
+>本文用于记录使用快慢指针法解决链表问题。
+
+## 环形链表
+
+给定一个链表，判断链表中是否有环，如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。为了表示给定链表中的环，我们使用整数 **pos** 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 **pos** 是 **-1**，则在该链表中没有环。注意：**pos** 不作为参数进行传递，仅仅是为了标识链表的实际情况。
+
+![环形链表](https://cdn.xshellv.com/circularlinkedlist.png)
+
+
+### 哈希表
+设计一张哈希表将每次遍历的链表节点存起来，在下一次添加前判断当前节点是否存在与哈希表之中。如果存在则返回**true**
+
+```js
+var hasCycle = function (head) {
+    /**
+     * 哈希表
+     */
+    let set = new Set();
+    let curr = head;
+
+    while(curr !== null){
+        if(set.has(curr)){
+            return true;
+        }
+        set.add(curr);
+        curr = curr.next;
+    }
+    return false
+};
+```
+
+#### 复杂度分析
+
+* 时间复杂度：`O(N)`，其中 N 是链表中的节点数。最坏情况下我们需要遍历每个节点一次。
+* 空间复杂度：`O(N)`，其中 N 是链表中的节点数。主要为哈希表的开销，最坏情况下我们需要将每个节点插入到哈希表中一次。
+
+### 快慢指针法
+
+> 我们定义两个指针，一快一满。慢指针每次只移动一步，而快指针每次移动两步。初始时，慢指针在位置 head，而快指针在位置 head.next。这样一来，如果在移动的过程中，快指针反过来追上慢指针，就说明该链表为环形链表。否则快指针将到达链表尾部，该链表不为环形链表。
+
+```js
+var hasCycle = function (head) {
+    /**
+     * 快慢指针
+     */
+    let slow = head;
+    let fast = head;
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow == fast){
+            return true
+        }
+    }
+    return false;
+};
+```
+
+#### 复杂度分析
+
+复杂度分析
+
+* 时间复杂度：`O(N)`，其中 N 是链表中的节点数。当链表中不存在环时，快指针将先于慢指针到达链表尾部，链表中每个节点至多被访问两次。当链表中存在环时，每一轮移动后，快慢指针的距离将减小一。而初始距离为环的长度，因此至多移动 NN 轮。
+
+* 空间复杂度：`O(1)`。我们只使用了两个指针的额外空间。
+
+
+## 参考文章
+* [环形链表](https://leetcode-cn.com/problems/linked-list-cycle/solution/huan-xing-lian-biao-by-leetcode-solution/)
