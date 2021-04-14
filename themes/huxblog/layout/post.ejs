@@ -87,25 +87,11 @@ layout: layout
                     <% } %>
                 </ul>
 
-                <% if(config['duoshuo_username']) { %>
-                <!-- 多说评论框 start -->
+                <!-- Gitalk评论框 start -->
                 <div class="comment">
-                    <div class="ds-thread"
-                        data-thread-key="<%= page.path %>"
-                        data-title="<%= page.title %>"
-                        data-url="<%= page.permalink %>" >
-                    </div>
+                    <div id="gitalk-container"></div>     
                 </div>
-                <!-- 多说评论框 end -->
-                <% } %>
-
-                <% if(config['disqus_username']) { %>
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
-                </div>
-                <!-- disqus 评论框 end -->
-                <% } %>
+                <!-- Gitalk评论框 end -->
 
             </div>
     <!-- Side Catalog Container -->
@@ -161,6 +147,29 @@ layout: layout
         </div>
     </div>
 </article>
+
+<!-- Gitalk 评论 start  -->
+<!-- Link Gitalk 的支持文件  -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
+<script src="/js/md5.min.js"></script>
+<script type="text/javascript">
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent)
+    if(!isMobile){
+        var gitalk = new Gitalk({
+        // gitalk的主要参数
+            clientID: 'd128770f967d5aa71b3f',
+            clientSecret: '610f8358ff797675da3ea64c99a240ce6d0afcb9',
+            repo: 'hexo-comment',
+            owner: 'XShellv',
+            admin: ['XShellv'],
+            id: md5(location.pathname),
+        });
+        gitalk.render('gitalk-container');   
+ }
+
+</script> 
+<!-- Gitalk end -->
 
 <% if(config['duoshuo_username']) { %>
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
