@@ -5,7 +5,6 @@ author:     "Xshellv"
 catalog:    true
 header-style: text
 tags:
-    - React
     - Nginx
 ---
 

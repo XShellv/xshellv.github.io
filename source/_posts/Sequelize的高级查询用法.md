@@ -6,7 +6,6 @@ catalog:    true
 header-style: text
 tags:
     - Mysql
-    - Sequelize
 ---
 
 > nodejs中常用的Sequelize模块能够帮助我们完成简单的sql查询，但是如果查询稍微复杂，面对蹩脚的sequelize文档我们很难完成，本编主要帮助作者记录日常摸索的复杂查询，同时也分享给各位。

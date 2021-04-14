@@ -6,7 +6,6 @@ catalog:    true
 header-img: "post-bg-js-version.jpg"
 tags:
     - css
-    - 笔记
 ---
 
 > 用于记录flex布局的常用知识点。
