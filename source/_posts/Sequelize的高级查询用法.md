@@ -34,7 +34,7 @@ SELECT COUNT('name') AS `count`, `name` FROM `tags` AS `tag` GROUP BY `name` ORD
 
 ### sequelize的实现写法
 
-#### `sequelize.fn()` - 函数调用
+`sequelize.fn()` - 函数调用
 
 ```js
 sequelize.fn(fn, args) -> Sequelize.fn
@@ -47,7 +47,7 @@ sequelize.fn(fn, args) -> Sequelize.fn
 | fn | String | 要调用的函数 |
 | args | any | 传递给调用函数的参数 |
 
-#### 实现
+### 实现
 
 ```js
 const ret = await model.Tag.findAll({
